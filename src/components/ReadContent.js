@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-class Article extends Component {
+class ReadContent extends Component {
   render() {
     return (
       <article>
@@ -12,4 +12,4 @@ class Article extends Component {
   }
 }
 
-export default Article;
+export default ReadContent;

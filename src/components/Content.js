@@ -1,7 +1,20 @@
 import React, { Component } from "react";
 
-class Nav extends Component {
+class Content extends Component {
+  shouldComponentUpdate(newProps, newState) {
+    console.log(
+      'asdasdasd',
+      newProps.data,
+      this.props.data
+    );
+
+    if (this.props.data === newProps.data) {
+      return false;
+    }
+    return true;
+  }
   render() {
+    console.log('Content render')
     var lists = [];
     var data = this.props.data;
     var i = 0;
@@ -10,7 +23,7 @@ class Nav extends Component {
         <li key={data[i].id}>
           <a href={"/nav/" + data[i].id}
             //data-id={data[i].id}
-            //data.target.dataset.id
+            //e.target.dataset.id
             onClick={function (id, e) {
               e.preventDefault();
               this.props.onChangePage(id)
@@ -26,9 +39,8 @@ class Nav extends Component {
           {lists}
         </ul>
       </nav>
-
     );
   }
 }
 
-export default Nav;
+export default Content;
