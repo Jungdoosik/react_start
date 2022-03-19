@@ -2,11 +2,11 @@ import React, { Component } from "react";
 
 class Content extends Component {
   shouldComponentUpdate(newProps, newState) {
-    console.log(
-      'asdasdasd',
-      newProps.data,
-      this.props.data
-    );
+    // console.log(
+    //   'asdasdasd',
+    //   newProps.data,
+    //   this.props.data
+    // );
 
     if (this.props.data === newProps.data) {
       return false;
