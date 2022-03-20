@@ -127,9 +127,31 @@ class App extends Component {
           data={this.state.content}
         ></Content>
         <Control onChangeMode={function (_mode) {
-          this.setState({
-            mode: _mode
-          });
+
+          if (_mode === 'delete') {
+            if (window.confirm("삭제하시겠습니까?")) {
+              let _content = Array.from(this.state.content);
+              let i = 0;
+              while (i < _content.length) {
+                if (_content[i].id === this.state.selected_content_id) {
+                  _content.splice(i, 1);
+                  break;
+                }
+                i++;
+              }
+              this.setState({
+                mode: 'welcome',
+                content: _content
+              });
+              alert('삭제완료');
+            }
+          } else {
+            this.setState({
+              mode: _mode
+            });
+          }
+
+
         }.bind(this)}></Control>
         {this.getContent()}
       </div>
